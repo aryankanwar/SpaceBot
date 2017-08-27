@@ -1,0 +1,25 @@
+{
+  "name": "bot",
+  "version": "1.0.0",
+  "description": "A fb messenger bot",
+  "main": "webhook.js",
+  "dependencies": {
+    "express"             :"^4.15.4",
+    "body-parser"          :"^1.17.2 ",
+    "request"             :"^2.81.0 ",
+    "random-movie-quotes" :"^1.0.3",
+    "cheerio"             :"^1.0.0-rc.2",
+    "greeting"            :"^1.0.6",
+    "async"               :"^2.5.0",
+    "one-liner-joke"      :"^1.0.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "node webhook.js"
+  },
+  "engines": {
+    "node": "4.7.2"
+  },
+  "author": "aryan kanwar",
+  "license": "ISC"
+}
