@@ -1,40 +1,36 @@
-const inshorts         = require('inshorts').init();
+const oneLinerJoke     = require('one-liner-joke');
 const Promise          = require('bluebird');
 var commonFunctions    = require('./commonFunctions.js');
-const fbPageToken      = process.env.PAGE_ACCESS_TOKEN;
 const rp               = require('request-promise');
+const fbPageToken      = process.env.PAGE_ACCESS_TOKEN;
 
 exports.sendResponse   = sendResponse;
 
 function sendResponse(event) {
     Promise.coroutine(function* () {
-        var getNews = yield getLatestNews(event);
-        var LatestNews = yield sendTextResponseToUser(event, getNews);
-        return LatestNews;
-    })().then((LatestNews) => {
-        return LatestNews;
+        var Joke = yield getJoke(event);
+        var sendJokeResposne = yield sendTextResponseToUser(event, Joke);
+        return sendJokeResposne;
+    })().then((sendJokeResposne) => {
+        return sendJokeResposne;
     }, (error) => {
         return error;
     })
 }
 
-function getLatestNews(event) {
+function getJoke(event) {
+    var getRandomJoke = oneLinerJoke.getRandomJoke();
     return new Promise((resolve, reject) => {
-        var items = ['national', 'business', 'sports', 'world', 'politics',
-            'technology', 'startup', 'entertainment', 'miscellaneous', 'hatke', 'science', 'automobile'];
-        var items = items[Math.floor(Math.random() * items.length)];
-        inshorts.getNews(items, (err, result) => {
-            if (err || !result && !result.body && !Array.isArray(result.body)) {
-                var newsObj = "Could not fetch news at this instant"
-            } else {
-                newsObj = result.body[0];
-            }
-            resolve(newsObj);
-        });
+        if (getRandomJoke.body) {
+            var jokeObj = getRandomJoke.body;
+        } else {
+            var jokeObj = "Every Scooby-Doo episode would literally be two minutes long if the gang went to the mask store first and asked a few questions.";
+        }
+        resolve(jokeObj);
     });
 }
 
-function sendTextResponseToUser(event, getNews) {
+function sendTextResponseToUser(event, ObjJoke) {
     let sender = event.sender.id;
     var options = {
         uri: 'https://graph.facebook.com/v2.6/me/messages',
@@ -43,11 +39,11 @@ function sendTextResponseToUser(event, getNews) {
         json: {
             recipient: { id: sender },
             message: {
-                text: getNews,
+                text: ObjJoke,
                 quick_replies: [{
                     content_type: "text",
-                    title: "More News?",
-                    payload: "NEWS"
+                    title: "One more Joke?",
+                    payload: "JOKES"
                 },
                 {
                     content_type: "text",
