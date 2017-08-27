@@ -1,0 +1,39 @@
+{
+  "env": {
+    "es6": true
+  },
+   "plugins": [
+    "import"
+  ],
+  "parser": "babel-eslint",
+  "extends": "airbnb-base",
+  "rules": {
+    "no-unused-vars": "off",
+    "no-useless-concat": "off",
+    "no-console": "off",
+    "block-scoped-var": "off",
+    "no-redeclare": "off",
+    "no-var": "off",
+    "vars-on-top": "off",
+    "no-var": "off",
+    "func-names": "off",
+    "no-use-before-define": "off",
+    "no-prototype-builtins": "off",
+    "prefer-destructuring": "off",
+    "eqeqeq": "off",
+    "no-useless-escape": "off",
+    "prefer-destructuring": "off",
+    "no-shadow": "off",
+    "array-callback-return": "off",
+    "prefer-destructuring": "off",
+    "no-mixed-operator": "off",
+    "import/order": "off",
+    "consistent-return": "off",
+    "no-mixed-operators": "off",
+    "radix": "off",
+    "no-unused-expressions": "off",
+    "no-param-reassign": "off",
+    "max-len": "off",
+    "no-bitwise": "off"
+  }
+}
