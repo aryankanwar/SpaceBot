@@ -15,7 +15,8 @@
     "weather-js": "^2.0.0"
   },
   "scripts": {
-    "test": "node app.js"
+    "test": "node app.js",
+    "lint": "eslint --ext .js routes/"
   },
   "keywords": [
     "node",
@@ -23,5 +24,11 @@
     "iss"
   ],
   "author": "Aryan Kanwar",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "babel-eslint": "^10.0.1",
+    "eslint": "^5.11.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-plugin-import": "^2.14.0"
+  }
 }
