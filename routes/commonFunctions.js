@@ -38,9 +38,6 @@ function sendTextResponseToUser(event, textToSend) {
 
 function sendImageResponseToUser(event, Link, type) {
   const sender = event.sender.id;
-  if (typeof Link === 'undefined') {
-    text = "Sorry! I can't respond to this command at this moment";
-  }
   const options = {
     uri: 'https://graph.facebook.com/v2.6/me/messages',
     qs: { access_token: PAGE_ACCESS_TOKEN },

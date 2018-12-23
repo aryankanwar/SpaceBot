@@ -8,7 +8,6 @@
   "parser": "babel-eslint",
   "extends": "airbnb-base",
   "rules": {
-    "no-undef": "off",
     "no-unused-vars": "off",
     "no-useless-concat": "off",
     "no-console": "off",

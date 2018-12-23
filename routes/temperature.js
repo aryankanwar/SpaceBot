@@ -93,6 +93,7 @@ function findLocation(event, locationObj) {
 function findWeather(event, regionObj) {
   return new Promise((resolve, reject) => {
     weather.find({ search: regionObj, degreeType: 'C' }, (err, result) => {
+      let resultObj;
       if (result
                 && result[0]
                 && Object.keys(result[0]).length

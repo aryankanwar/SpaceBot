@@ -24,7 +24,7 @@ function peopleInSpace() {
       if (result.number && result.people && Array.isArray(result.people)) {
         let peopleObj = '';
         result.people.map((n) => {
-          spaceInfo = `- ${n.name} is on ${n.craft}\n`;
+          const spaceInfo = `- ${n.name} is on ${n.craft}\n`;
           peopleObj += spaceInfo;
         });
         var resultObj = `Total Number : ${result.number}\n${
